@@ -17,7 +17,7 @@
   );
   const NETWORK =
     'https://crimson-withered-aura.solana-devnet.quiknode.pro/d77410756a6a1e3b01afdb3a3d008812c6bba779/';
-  const connection = new Connection(NETWORK, 'confirmed');
+  const connection = new Connection(NETWORK, 'processed');
 
   const connectBtn = document.getElementById('connectBtn');
 
@@ -526,13 +526,13 @@
       document.getElementById('playerMoveDisplay').classList.add('sL01');
       document.getElementById('contractMoveDisplay').classList.add('sR01');
       const moveImages = {
-        Rock: 'public/svg/armsRL.svg',
-        Paper: 'public/svg/armsPL.svg',
-        Scissors: 'public/svg/armsSL.svg',
+        Rock: 'public/SVG/armsRL.svg',
+        Paper: 'public/SVG/armsPL.svg',
+        Scissors: 'public/SVG/armsSL.svg',
       };
 
       let playerChoice = MOVES[parseInt(playerMove)];
-      playerMoveDisplay.innerHTML = `<img src="public/svg/armsRL.svg" alt="${playerChoice}" width="80">`;
+      playerMoveDisplay.innerHTML = `<img src="public/SVG/armsRL.svg" alt="${playerChoice}" width="80">`;
 
       roundResult.innerHTML = '';
 
@@ -555,10 +555,10 @@
         const signature = await connection.sendRawTransaction(
           signedTx.serialize(),
         );
-        await connection.confirmTransaction(signature, 'confirmed');
+        await connection.confirmTransaction(signature, 'processed');
 
         const txDetails = await connection.getTransaction(signature, {
-          commitment: 'confirmed',
+          commitment: 'processed',
         });
 
         await updateScore();
@@ -584,7 +584,7 @@
           <p><strong>Signature:</strong> ${signature}</p>
           <p><strong>Slot:</strong> ${txDetails.slot}</p>
           <p><strong>Status:</strong> ${
-            txDetails.meta?.err ? 'Failed' : 'Confirmed'
+            txDetails.meta?.err ? 'Failed' : 'processed'
           }</p>
           <p><strong>Fee paid:</strong> ${
             (txDetails.meta?.fee || 0) / 1e9
@@ -976,3 +976,4 @@
     loadRanking();
   });
 })();
+
