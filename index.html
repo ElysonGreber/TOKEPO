@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>TokenPo</title>
+    <meta property="og:title" content="HANd SOLo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <link href="./index.css" rel="stylesheet" />
+    <link href="carousel.css" rel="stylesheet" />
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <style>
+        .containercarro {
+            margin: 0 auto;
+            width: 250px;
+            height: 200px;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        .carouselcarro {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        
+        .item {
+            display: block;
+            position: absolute;
+            background: #000;
+            width: 250px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 5em;
+            text-align: center;
+            color: #fff;
+            opacity: 0.95;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        
+        .ca {
+            transform: rotateY(0deg) translateZ(250px);
+            background: #ed1c24;
+        }
+        
+        .cb {
+            transform: rotateY(120deg) translateZ(250px);
+            background: #0072bc;
+        }
+        
+        .cc {
+            transform: rotateY(240deg) translateZ(250px);
+            background: #39b54a;
+        }
+    </style>
+    <style data-tag="reset-style-sheet">
+        html {
+            line-height: 1.15;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        p,
+        li,
+        ul,
+        pre,
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        figure,
+        blockquote,
+        figcaption {
+            margin: 0;
+            padding: 0;
+        }
+        
+        button {
+            background-color: transparent;
+        }
+        
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+            line-height: 1.15;
+            margin: 0;
+        }
+        
+        button,
+        select {
+            text-transform: none;
+        }
+        
+        button,
+        [type="button"],
+        [type="reset"],
+        [type="submit"] {
+            -webkit-appearance: button;
+            color: inherit;
+        }
+        
+        button::-moz-focus-inner,
+        [type="button"]::-moz-focus-inner,
+        [type="reset"]::-moz-focus-inner,
+        [type="submit"]::-moz-focus-inner {
+            border-style: none;
+            padding: 0;
+        }
+        
+        button:-moz-focus,
+        [type="button"]:-moz-focus,
+        [type="reset"]:-moz-focus,
+        [type="submit"]:-moz-focus {
+            outline: 1px dotted ButtonText;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        
+        input {
+            padding: 2px 4px;
+        }
+        
+        img {
+            display: block;
+        }
+        
+        details {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        [data-thq="accordion"] [data-thq="accordion-content"] {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            padding: 0;
+        }
+        
+        [data-thq="accordion"] details[data-thq="accordion-trigger"][open]+[data-thq="accordion-content"] {
+            max-height: 1000vh;
+        }
+        
+        details[data-thq="accordion-trigger"][open] summary [data-thq="accordion-icon"] {
+            transform: rotate(180deg);
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+    </style>
+    <style data-tag="default-style-sheet">
+        html {
+            font-family: Inter;
+            font-size: 16px;
+        }
+        
+        body {
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: normal;
+            line-height: 1.15;
+            color: var(--dl-color-gray-black);
+            --tw-bg-opacity: 1;
+            /* background: var(--dl-color-gray-white); */
+            fill: var(--dl-color-gray-black);
+        }
+    </style>
+    <style>
+        /* body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+         */
+        /* svg {
+            width: 200px;
+        } */
+        /* Braço esquerdo */
+        
+        #rockArmsL {
+            transform-origin: bottom left;
+            /* pivô no canto inferior esquerdo */
+            animation: swingRight 0.3s ease-in-out infinite alternate;
+        }
+        
+        .svgArmsLeft {
+            margin-left: -20px;
+        }
+        
+        .svgArmsRight {
+            margin-right: -20px;
+        }
+        /* @keyframes swingRight {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-30deg);
+            }
+        } */
+        /* Braço direito */
+        
+        #armsRR {
+            transform-origin: bottom right;
+            /* pivô no canto inferior direito */
+            animation: swingLeft 0.3s ease-in-out infinite alternate;
+        }
+        /* @keyframes swingLeft {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(30deg);
+            }
+        } */
+    </style>
+    <style>
+         :root {
+            --bg: #0f172a;
+            /* slate-900 */
+            --panel: #111827;
+            /* gray-900 */
+            --text: #e5e7eb;
+            /* gray-200 */
+            --muted: #94a3b8;
+            /* slate-400 */
+            --accent: #22c55e;
+            /* green-500 */
+        }
+        
+        .overlay {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(1200px 600px at 50% -10%, rgba(34, 197, 94, 0.15), transparent 60%), linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+            backdrop-filter: blur(2px);
+            z-index: 9999;
+            transition: opacity 280ms ease, visibility 280ms ease;
+        }
+        
+        .overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        .overlay-card {
+            display: flex;
+            FONT-WEIGHT: 500;
+            width: min(92vw, 480px);
+            height: 800px;
+            background: var(--panel);
+            /* background-image: url(bg.png);
+            background-size: 60%;
+            background-position: center;
+            background-repeat: no-repeat; */
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        
+        .overlay-header {
+            position: relative;
+            padding: clamp(18px, 5vw, 24px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 28px;
+            height: 28px;
+            padding: 0 10px;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.12);
+            color: var(--text);
+            font-size: 12px;
+            letter-spacing: .4px;
+            text-transform: uppercase;
+        }
+        
+        .overlay-title {
+            margin: 0;
+            font-size: clamp(18px, 4.5vw, 22px);
+            font-weight: 700;
+        }
+        
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 14px;
+            display: flex;
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 10px;
+            background: #112926;
+            color: var(--text);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        .overlay-body {
+            padding: clamp(18px, 5vw, 24px);
+            font-size: clamp(14px, 3.8vw, 16px);
+            color: var(--muted);
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .overlay-actions {
+            display: grid;
+            gap: 10px;
+            padding: 0 clamp(18px, 5vw, 24px) clamp(18px, 5vw, 24px);
+        }
+        
+        .primary-btn {
+            appearance: none;
+            border: 0;
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            cursor: pointer;
+            background: linear-gradient(180deg, #22c55e, #16a34a);
+            color: #0b1021;
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+        }
+        
+        .link-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            font-size: 13px;
+            color: var(--muted);
+        }
+        
+        .link-row a {
+            color: #86efac;
+            text-decoration: none;
+        }
+        
+        .link-row a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        
+        body.modal-open {
+            overflow: hidden;
+        }
+    </style>
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" data-tag="font" />
+    <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@1.85.0/lib/index.iife.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"; import { getFirestore, collection, doc, setDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js"; window._firebaseApp
+        = initializeApp({ apiKey: "AIzaSyAeuOfToF-0bU_0Jxk1vXaYL1CSRA6O9jQ", authDomain: "jokenpo-6ceea.firebaseapp.com", projectId: "jokenpo-6ceea", storageBucket: "jokenpo-6ceea.firebasestorage.app", messagingSenderId: "931042064624", appId: "1:931042064624:web:f40ea61e807b9cad6eaa35",
+        measurementId: "G-YYHFCSL3BP" }); window._firestore = getFirestore(window._firebaseApp); window._firestoreFuncs = { collection, doc, setDoc, getDocs, query, orderBy };
+    </script>
+</head>
+
+<!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+<body>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <div id="gameModal" class="modal hidden">
+        <div class="gamecard-content">
+            <div class="gamecard-header">
+                <span class="badge" aria-hidden="true">Beta</span>
+                <h1 id="overlay-title" class="overlay-title">Your Shot</h1>
+                <button id="closeModal" class="close-btn" aria-label="Fechar tela inicial" title="Fechar">
+            <!-- Ícone X -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M6.225 4.811a1 1 0 0 1 1.414 0L12 9.172l4.361-4.361a1 1 0 1 1 1.414 1.414l-4.361 4.361 4.361 4.361a1 1 0 0 1-1.414 1.414L12 12l-4.361 4.361a1 1 0 1 1-1.414-1.414l4.361-4.361-4.361-4.361a1 1 0 0 1 0-1.414"/></svg>
+      </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="svgCounteriner3">
+                    <div class="player-choice">
+                        <h3></h3>
+                        <p id="playerMoveDisplay" class="sL01"></p>
+                    </div>
+
+                    <div class="contract-choice">
+                        <h3></h3>
+                        <p id="contractMoveDisplay" class="sR01">...</p>
+                    </div>
+
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388.55 158.05" class="svgArmsLeft" id="svgmodal">
+                            <defs>
+                                <style>
+                                    .arms_cls1,
+                                    .arms_cls3,
+                                    .arms_cls4 {
+                                        fill: #fff;
+                                    }
+                        
+                                    .arms_cls1,
+                                    .arms_cls2,
+                                    .arms_cls3,
+                                    .arms_cls4 {
+                                        stroke: #000;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                    }
+                        
+                                    .arms_cls1 {
+                                        stroke-width: 5px;
+                                    }
+                        
+                                    .arms_cls2 {
+                                        fill: none;
+                                        stroke-width: 3px;
+                                    }
+                        
+                                    .arms_cls3 {
+                                        stroke-width: 5px;
+                                    }
+                        
+                                    .arms_cls4 {
+                                        stroke-width: 5px;
+                                    }
+                                </style>
+                            </defs>
+                            <title>armsGL</title>
+                            <g id="rockArmsL" data-name="Layer 2">
+                                <g id="LeftArm">
+                                    <path class="arms_cls1"
+                                        d="M245.76,64.22H182.59a32.63,32.63,0,0,1,4.62-2.58c-.7-1.69-2.48-2.67-5.93-2.67H35C17,59,2.5,74.68,2.5,94.07S17,129.16,35,129.16H181.28c3.42,0,5.2-1,5.92-2.67a32,32,0,0,1-4.61-2.58h63.17c3.86,0,7.52-2.3,10.79-5.63a34.75,34.75,0,0,0,0-48.43C253.28,66.53,249.62,64.22,245.76,64.22Z" />
+                                    <path class="arms_cls1"
+                                        d="M171.05,135.31h17.83c4,0,7.25-3.85,7.25-8.6l-.51-2.46a150,150,0,0,1-.14-59.58l.65-3.24c0-4.75-3.25-8.61-7.25-8.61H171.05c-5.4,0-8.17,12.69-8.91,17.32a153.36,153.36,0,0,0,0,47.72C162.83,122.55,165.45,135.31,171.05,135.31Z" />
+                                    <path class="arms_cls2" d="M190.08,135.16l-2.84-10.91a149.77,149.77,0,0,1-.15-59.58l3-11.76" />
+                                </g>
+                                <g id="LeftRock">
+                                    <path id="path32294" class="arms_cls1"
+                                        d="M314.91,46.89c23.57-13.1,45.08,11.77,26.16,31.86,17.73-1.4,26.45,33.89,3.8,41.84,5,19-15.26,29.82-43.41,33.8a95.48,95.48,0,0,1-22.76.64c-21.13-2.21-38.79-9.66-53.34-26.21-8.56-9.66-9.86-39.06-6.83-52.44C224.66,50.45,258.25,26,281,25.26,304.62,24.47,311.36,43.13,314.91,46.89Z" />
+                                    <path id="path32296"
+                                        d="M341.37,81.48c1.31-.33,3.76-.57,3.32-.6l-1.47-7.6c-2.05,2.39-4.46,3-6.4,4-11.43,5.42-14.34,6.21-25.41,10.49,4.92-.62,12.57,1,30-6.26Z" />
+                                    <path id="path32298"
+                                        d="M348.15,121.67c-2.72-3.09-3.28-3.75-3.28-3.74-8.88,2.29-23.84,7.25-29.71,8.86,9,.73,22.34-2.07,33-5.12Z" />
+                                    <path id="path32306"
+                                        d="M316.42,43.54,316.3,49c-27.86,7.27-33.09-1.73-46.44-8,12.69,3.8,22.86,10.3,46.56,2.54Z" />
+                                </g>
+                            </g>
+                        </svg> -->
+
+
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 388.55 158.05" class="svgArmsRight" id="svgmodal">
+                        <defs>
+                            <style>
+                                .arms_cls1,
+                                .arms_cls3,
+                                .arms_cls4 {
+                                    fill: #fff;
+                                }
+                    
+                                .arms_cls1,
+                                .arms_cls2,
+                                .arms_cls3,
+                                .arms_cls4 {
+                                    stroke: #000;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                }
+                    
+                                .arms_cls1 {
+                                    stroke-width: 5px;
+                                }
+                    
+                                .arms_cls2 {
+                                    fill: none;
+                                    stroke-width: 3px;
+                                }
+                    
+                                .arms_cls3 {
+                                    stroke-width: 5px;
+                                }
+                    
+                                .arms_cls4 {
+                                    stroke-width: 5px;
+                                }
+                            </style>
+                        </defs>
+                        <title>armsGR</title>
+                        <g id="armsRR" data-name="armsRR">
+                            <g id="RightArm">
+                                <path class="arms_cls1"
+                                    d="M142.79,64.22H206a32.19,32.19,0,0,0-4.63-2.58C202,60,203.82,59,207.27,59H353.6c17.92,0,32.45,15.71,32.45,35.1s-14.53,35.09-32.45,35.09H207.27c-3.43,0-5.2-1-5.92-2.67a32.52,32.52,0,0,0,4.61-2.58H142.79c-3.86,0-7.52-2.3-10.79-5.63a34.75,34.75,0,0,1,0-48.43C135.27,66.53,138.93,64.22,142.79,64.22Z" />
+                                <path class="arms_cls1"
+                                    d="M217.49,135.31H199.67c-4,0-7.25-3.85-7.25-8.6l.5-2.46a150.14,150.14,0,0,0,.15-59.58l-.65-3.24c0-4.75,3.24-8.61,7.25-8.61h17.82c5.41,0,8.18,12.69,8.92,17.32a153.66,153.66,0,0,1,.05,47.72C225.72,122.55,223.1,135.31,217.49,135.31Z" />
+                                <path class="arms_cls2" d="M198.47,135.16l2.84-10.91a150.14,150.14,0,0,0,.15-59.58l-3-11.76" />
+                            </g>
+                            <g id="RightRock">
+                                <path id="path32294" class="arms_cls1"
+                                    d="M107.55,25.26C130.3,26,163.89,50.45,170,76.38c3,13.38,1.73,42.78-6.83,52.44-14.55,16.55-32.21,24-53.34,26.21a95.46,95.46,0,0,1-22.76-.64c-28.15-4-48.4-14.78-43.41-33.8-22.66-8-13.93-43.24,3.8-41.84-18.92-20.09,2.59-45,26.16-31.86C77.19,43.13,83.93,24.47,107.55,25.26Z" />
+                                <path id="path32296"
+                                    d="M47.17,81.48c17.4,7.25,25,5.64,30,6.26-11.07-4.28-14-5.07-25.41-10.49-1.94-.92-4.35-1.58-6.4-4l-1.47,7.6c-.44,0,2,.27,3.31.6Z" />
+                                <path id="path32298" d="M40.4,121.67c10.65,3,24,5.85,33,5.12-5.87-1.61-20.83-6.57-29.72-8.86l-3.27,3.74Z" />
+                                <path id="path32306"
+                                    d="M72.13,43.54C95.83,51.3,106,44.8,118.69,41c-13.35,6.3-18.59,15.3-46.44,8l-.12-5.49Z" />
+                            </g>
+                        </g>
+                    </svg> -->
+                </div>
+
+            </div>
+
+            <div id="roundResult" class="result"></div>
+        </div>
+    </div>
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <div id="intro-overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="overlay-title" aria-describedby="overlay-desc">
+        <div class="overlay-card">
+            <div class="overlay-header">
+                <span class="badge" aria-hidden="true">Beta</span>
+                <h1 id="overlay-title" class="overlay-title">Welcome</h1>
+                <button id="close-overlay" class="close-btn" aria-label="Fechar tela inicial" title="Fechar">
+                <!-- Ícone X -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M6.225 4.811a1 1 0 0 1 1.414 0L12 9.172l4.361-4.361a1 1 0 1 1 1.414 1.414l-4.361 4.361 4.361 4.361a1 1 0 0 1-1.414 1.414L12 12l-4.361 4.361a1 1 0 1 1-1.414-1.414l4.361-4.361-4.361-4.361a1 1 0 0 1 0-1.414"/></svg>
+                </button>
+            </div>
+            <div class="overlay-body" id="overlay-desc" style="
+            background: linear-gradient(
+          cyan, transparent),linear-gradient(-45deg, magenta,transparent),linear-gradient( 45deg, yellow,
+          transparent);
+            background-blend-mode: normal;
+       
+            background-clip: src;
+            -webkit-mask: url(public/SVG/logovert_1.svg) no-repeat center;
+            -webkit-mask-size: 51%;
+            height: 500px;
+        ">
+                <!-- <img src="public/png/logovert@0.5x.png" alt="" style="height: 500px;"> -->
+            </div>
+            <div class="overlay-actions">
+                <button id="enter-btn" class="primary-btn">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <div>
+        <div class="home-container1">
+            <header class="home-header10">
+                <header data-thq="thq-navbar" class="home-navbar">
+                    <span class="home-logo1">
+                        <img class="logosvg" src="public/png/logojkp.png"> </span>
+                    <div data-thq="thq-navbar-nav" data-role="Nav" class="home-desktop-menu">
+                        <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="home-nav1">
+                            <button class="home-button1 button-clean button">About</button>
+                            <button class="home-button2 button-clean button">
+                  Features
+                </button>
+                            <button class="home-button3 button-clean button">
+                  Pricing
+                </button>
+                            <button class="home-button4 button-clean button">Team</button>
+                            <button class="home-button5 button-clean button">Blog</button>
+                            <button class="social button">
+                  <img
+                    alt="image"
+                    src="public/Icons/twitter.svg"
+                    class="home-image10"
+                  />
+                </button>
+                            <button class="social button">
+                  <img
+                    alt="image"
+                    src="public/Icons/discord.svg"
+                    class="home-image11"
+                  />
+                </button>
+                        </nav>
+                    </div>
+                    <div data-thq="thq-navbar-btn-group" class="home-btn-group">
+
+                        <button id="connectBtn1" class="connectBtn" style="font-size: 14px;width: -webkit-fill-available;background: var(--color-theme-solgreen);margin: 10px 0px 10px 0px;">
+                            
+                            <p style="margin-top: 3px;">Connect</p>
+                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19,7H18V6a3,3,0,0,0-3-3H5A3,3,0,0,0,2,6H2V18a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V10A3,3,0,0,0,19,7ZM5,5H15a1,1,0,0,1,1,1V7H5A1,1,0,0,1,5,5ZM20,15H19a1,1,0,0,1,0-2h1Zm0-4H19a3,3,0,0,0,0,6h1v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V8.83A3,3,0,0,0,5,9H19a1,1,0,0,1,1,1Z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div data-thq="thq-burger-menu" class="home-burger-menu">
+                        <button class="button home-button6">
+                            <svg viewBox="0 0 1024 1024" class="home-icon10"><path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667S919.552 469.333 896 469.333H128c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667m0-256h768c23.552 0 42.667-19.115 42.667-42.667S919.552 213.333 896 213.333H128c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667m0 512h768c23.552 0 42.667-19.115 42.667-42.667S919.552 725.333 896 725.333H128c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667"/></svg>
+              </button>
+                    </div>
+                    <div data-thq="thq-mobile-menu" class="home-mobile-menu">
+                        <div data-thq="thq-mobile-menu-nav" data-role="Nav" class="home-nav2">
+                            <div class="home-container2">
+                                <span class="home-logo2">Character</span>
+                                <div data-thq="thq-close-menu" class="home-menu-close">
+                                    <svg viewBox="0 0 1024 1024" class="home-icon12"><path d="M810 274 572 512l238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"/></svg>
+                                </div>
+                            </div>
+                            <nav data-thq="thq-mobile-menu-nav-links" data-role="Nav" class="home-nav3">
+                                <span class="home-text10">About</span>
+                                <span class="home-text11">Features</span>
+                                <span class="home-text12">Pricing</span>
+                                <span class="home-text13">Team</span>
+                                <span class="home-text14">Blog</span>
+                            </nav>
+                            <div class="home-container3">
+                                <button id="connectBtn" class="connectBtn" style="width: -webkit-fill-available;">Connect Wallet</button>
+                                <button class="home-login button">Login</button>
+                                <button class="button">Register</button>
+
+                            </div>
+                        </div>
+                        <div class="home-icon-group">
+                            <svg viewBox="0 0 950.857 1024" class="home-icon14"><path d="M925.714 233.143c-25.143 36.571-56.571 69.143-92.571 95.429.571 8 .571 16 .571 24 0 244-185.714 525.143-525.143 525.143-104.571 0-201.714-30.286-283.429-82.857 14.857 1.714 29.143 2.286 44.571 2.286 86.286 0 165.714-29.143 229.143-78.857-81.143-1.714-149.143-54.857-172.571-128 11.429 1.714 22.857 2.857 34.857 2.857 16.571 0 33.143-2.286 48.571-6.286-84.571-17.143-148-91.429-148-181.143v-2.286c24.571 13.714 53.143 22.286 83.429 23.429-49.714-33.143-82.286-89.714-82.286-153.714 0-34.286 9.143-65.714 25.143-93.143 90.857 112 227.429 185.143 380.571 193.143-2.857-13.714-4.571-28-4.571-42.286 0-101.714 82.286-184.571 184.571-184.571 53.143 0 101.143 22.286 134.857 58.286 41.714-8 81.714-23.429 117.143-44.571-13.714 42.857-42.857 78.857-81.143 101.714 37.143-4 73.143-14.286 106.286-28.571z"/></svg>
+                            <svg viewBox="0 0 877.714 1024" class="home-icon16"><path d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286S292.571 431.428 292.571 512s65.714 146.286 146.286 146.286S585.143 592.572 585.143 512M664 512c0 124.571-100.571 225.143-225.143 225.143S213.714 636.572 213.714 512s100.571-225.143 225.143-225.143S664 387.428 664 512m61.714-234.286c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571M438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286C73.714 310.857 78.857 448 78.857 512s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286S160 846.286 180 854.286C237.714 877.143 374.857 872 438.857 872S640 877.143 697.714 854.286c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286C804 713.143 798.857 576 798.857 512S804 310.857 781.143 253.143c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143C640 146.857 502.857 152 438.857 152m438.857 360c0 60.571.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184S690.286 944.572 620 948c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184C-.572 632.572 0 572.572 0 512s-.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857S559.428 72.572 620 76c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143"/></svg>
+                            <svg viewBox="0 0 602.258 1024" class="home-icon18"><path d="M548 6.857v150.857h-89.714c-70.286 0-83.429 33.714-83.429 82.286v108h167.429L520 517.143H374.857v433.714H200V517.143H54.286V348H200V223.429C200 78.858 288.571 0 417.714 0 479.428 0 532.571 4.571 548 6.857"/></svg>
+                        </div>
+                    </div>
+                </header>
+            </header>
+
+            <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+            <section class="home-hero">
+                <div class="home-heading10">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3087.49 657.52">
+                            <defs>
+                                <style>
+                                    .tp, .op1, .kp, .ep, .pp, .op2 {
+                                        fill: #fff;
+                                    }
+                                </style>
+                            </defs>
+                            <title>tokenpo</title>
+                        
+                                    <path class="tp"
+                                        d="M134.24,154.76H71.82a58.63,58.63,0,0,1-26.5-6.41,88.49,88.49,0,0,1-23.09-16.68A80.51,80.51,0,0,1,6,108.59,60.06,60.06,0,0,1,0,82.94a74.6,74.6,0,0,1,6-29.5A75.83,75.83,0,0,1,22.23,29.07,80.75,80.75,0,0,1,45.32,12.83a62,62,0,0,1,26.5-6H345.43a64.9,64.9,0,0,1,26.93,6,78.87,78.87,0,0,1,23.52,16.24,76,76,0,0,1,16.24,24.37,74.77,74.77,0,0,1,6,29.5,60.21,60.21,0,0,1-6,25.65,80.7,80.7,0,0,1-16.24,23.08,86,86,0,0,1-23.52,16.68,61.35,61.35,0,0,1-26.93,6.41H282.16V581.42q0,32.51-21.38,51.3t-52.15,18.81q-30.78,0-52.59-18.81t-21.8-51.3Z" />
+                                    <path class="op1"
+                                        d="M386.47,328.33q0-67.53,25.66-127.4T481.81,96.62q44-44.45,103.46-70.54T712.24,0q67.53,0,127,26.08T942.67,96.62q44,44.46,69.68,104.31T1038,328.33q0,67.56-25.66,127.4T942.67,560.47q-44,44.89-103.46,71t-127,26.08q-67.56,0-127-26.08t-103.46-71q-44.06-44.88-69.68-104.74T386.47,328.33Zm147.92,0A175.11,175.11,0,0,0,548.5,398,180.75,180.75,0,0,0,587,455.3a183.54,183.54,0,0,0,56.43,38.48,169.07,169.07,0,0,0,68.83,14.11,172.17,172.17,0,0,0,69.26-14.11,182.41,182.41,0,0,0,56.86-38.48,175.25,175.25,0,0,0,38-57.28,184.33,184.33,0,0,0,0-139.37,175.4,175.4,0,0,0-38-57.29,188.51,188.51,0,0,0-56.86-38.9,167.75,167.75,0,0,0-69.26-14.54,164.73,164.73,0,0,0-68.83,14.54A189.8,189.8,0,0,0,587,201.36a180.91,180.91,0,0,0-38.48,57.29A175.16,175.16,0,0,0,534.39,328.33Z" />
+                                    <path class="kp"
+                                        d="M1097.85,76.1q0-30.78,21.8-51.73t52.59-21q30.78,0,52.15,21t21.38,51.73V236L1366.33,37.62Q1387.69,3.43,1427,3.42q20.52,0,40.18,11.12a81.06,81.06,0,0,1,26.51,27.36,67.34,67.34,0,0,1,9.4,34.2q0,22.25-12.82,38.47L1359.49,328.33l131.67,209.48a94.77,94.77,0,0,1,8.55,18.81,62.16,62.16,0,0,1,3.42,19.67,71.18,71.18,0,0,1-9.4,35.48,79.54,79.54,0,0,1-26.51,27.79,76.8,76.8,0,0,1-19.66,8.12,79.71,79.71,0,0,1-20.52,3,77.07,77.07,0,0,1-35.06-8.13q-16.24-8.12-26.5-25.22L1245.77,420.67V578.85q0,30.78-21.38,51.73t-52.15,20.95q-30.78,0-52.59-20.95t-21.8-51.73ZM1216.7,371.94a4.87,4.87,0,0,0,1.71,3.42Z" />
+                                    <path class="ep"
+                                        d="M1719.45,399.3V500.19h145.36q31.62,0,52.58,21.8t20.95,52.59q0,30.78-20.95,52.16t-52.58,21.37H1645.06q-30.78,0-52.15-21.8t-21.38-52.59V81.23q0-31.62,21.38-53t52.15-21.38h219.75q31.62,0,52.58,21.38t20.95,52.15q0,30.78-20.95,52.59t-52.58,21.8H1719.45v96.62h145.36q31.62,0,52.58,21.37t20.95,52.16q0,31.65-20.95,53t-52.58,21.38Z" />
+                                    <path class="pp"
+                                        d="M2006.74,82.08q0-32.47,20.52-53.86t53.86-21.38h128.26q41.88,0,77.38,15.39a185.19,185.19,0,0,1,61.13,42.32,191.79,191.79,0,0,1,39.76,62.85q14.11,35.91,14.11,77.81t-14.11,78.66a199.25,199.25,0,0,1-39.76,64.55A184.26,184.26,0,0,1,2286.76,392q-35.49,15.83-77.38,15.82h-54.72V574.58q0,31.63-22.23,54.29t-53.87,22.66a65,65,0,0,1-28.65-6.41,75.85,75.85,0,0,1-23.08-17.1,72.94,72.94,0,0,1-15-24.8,83.16,83.16,0,0,1-5.13-28.64Zm147.92,72.68V259.93h54.72q12.82,0,21.37-6a49.35,49.35,0,0,0,13.68-14.1,55.79,55.79,0,0,0,7.27-17.53,78.09,78.09,0,0,0,2.14-17.1,64.38,64.38,0,0,0-2.14-15.39,51.93,51.93,0,0,0-7.27-16.25,47,47,0,0,0-13.68-13.25q-8.55-5.55-21.37-5.56Z" />
+                                    <path class="op2"
+                                        d="M2436,328.33q0-67.53,25.65-127.4t69.69-104.31q44-44.45,103.46-70.54T2761.72,0q67.53,0,127,26.08t103.46,70.54q44,44.46,69.68,104.31t25.66,127.4q0,67.56-25.66,127.4t-69.68,104.74q-44,44.89-103.46,71t-127,26.08q-67.56,0-127-26.08t-103.46-71q-44.05-44.88-69.69-104.74T2436,328.33Zm147.92,0A175.11,175.11,0,0,0,2598,398a180.75,180.75,0,0,0,38.48,57.28,183.54,183.54,0,0,0,56.43,38.48,169.1,169.1,0,0,0,68.83,14.11A172.17,172.17,0,0,0,2831,493.78a182.41,182.41,0,0,0,56.86-38.48,175.07,175.07,0,0,0,38-57.28,184.2,184.2,0,0,0,0-139.37,175.22,175.22,0,0,0-38-57.29,188.51,188.51,0,0,0-56.86-38.9,167.75,167.75,0,0,0-69.26-14.54,164.76,164.76,0,0,0-68.83,14.54,189.8,189.8,0,0,0-56.43,38.9A180.91,180.91,0,0,0,2598,258.65,175.16,175.16,0,0,0,2583.87,328.33Z" />
+                        </svg>
+                    <!-- <div class="svgCounteriner">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" id="sgvlogoanime" viewBox="0 0 1046.01 837.3">
+                            <defs>
+                              <style>
+                                .cls-1,.cls-2{fill:none;stroke-miterlimit:10;stroke-linecap:round}.cls-1{stroke:#66f9a1}.cls-1,.y1{stroke-width:150px}.y1,.y2,.y4{fill:none;stroke-miterlimit:10;stroke-linecap:round;stroke:#ff931e}.y2{stroke-width:160px}.y4{stroke-width:153px}.cls-2{stroke-width:160px;stroke:#66f9a1}.a,.b{fill:none;stroke-miterlimit:10;stroke-linecap:round}.a{stroke:#9945ff;stroke-width:130px}.b,.c{stroke-width:153px;stroke:#66f9a1}.c{fill:none;stroke:#9945ff;stroke-miterlimit:10;stroke-linecap:round}
+                              </style>
+                            </defs>
+                            <line x1="378.91" x2="624.6" y1="758.93" y2="758.93" class="r cls-1"/>
+                            <line x1="562.6" x2="702.79" y1="594.9" y2="594.9" class="r cls-2"/>
+                            <line x1="574.17" x2="745.65" y1="430.86" y2="430.86" class="r cls-2"/>
+                            <line x1="358.52" x2="638.1" y1="266.82" y2="266.82" class="r cls-1"/>
+                            <line x1="183.01" x2="359.86" y1="307.44" y2="193.27" class="r cls-1"/>
+                            <line x1="140.81" x2="392.75" y1="332.81" y2="65" class="pp a"/>
+                            <line x1="341.58" x2="784.23" y1="772.11" y2="772.11" class="pp a"/>
+                            <line x1="562.6" x2="902.23" y1="599.24" y2="599.24" class="pp a"/>
+                            <line x1="574.17" x2="981.01" y1="427.42" y2="427.42" class="pp a"/>
+                            <line x1="330.21" x2="877.55" y1="255.6" y2="255.6" class="pp a"/>
+                            <path id="circleReverce" d="M574.64 511.71a249.04 249.04 0 1 0-498.08 0 249.04 249.04 0 1 0 498.08 0Z" class="c"/>
+                            <circle id="circleBase" cx="325.6" cy="511.71" r="249.04" class="b"/>
+                            <circle id="circleReverce2" cx="325.6" cy="511.71" r="249.04" class="c"/>
+                            <path id="circleBase2" d="M574.64 511.71a249.04 249.04 0 1 0-498.08 0 249.04 249.04 0 1 0 498.08 0Z" class="b"/>
+                            <path id="circleBase4" d="M574.64 511.71a249.04 249.04 0 1 0-498.08 0 249.04 249.04 0 1 0 498.08 0Z" class="y4"/>
+                            <circle id="circleBase3" cx="325.6" cy="511.71" r="249.04" class="y4"/>
+                            <line x1="218.83" x2="345.9" y1="282.58" y2="187.54" class="s y2"/>
+                            <line x1="341.14" x2="624.75" y1="761.15" y2="761.15" class="s y1"/>
+                            <line x1="562.6" x2="734.25" y1="599.24" y2="599.24" class="s y2"/>
+                            <line x1="571.64" x2="1049.36" y1="422.26" y2="423.19" class="s y2"/>
+                            <line x1="466.58" x2="932.94" y1="277.99" y2="141.11" class="s y2"/>
+                        </svg>
+                    </div> -->
+                    <p class="home-caption10">
+                        A simple jokenpo game where you can win NFTs and tokens
+                    </p>
+                </div>
+            </section>
+            <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+            <section class="home-playgame">
+                <div style="width: 100%;background: linear-gradient(90deg, rgb(39 39 45 / 0%) 0%, rgb(0 0 0 / 46%) 50%, rgb(39 39 45 / 13%) 100%);">
+                    <p class="playcap">
+                        Start playing
+                    </p>
+
+                    <!-- 888888888888888888888888888888888888888888888888888888888888888888-->
+
+                    <div id="moveButtons" class="btn-group">
+                        <button class="moveBtn" data-move="0"><img src="public/svg/armsRL.svg" class="imbtn"></button>
+                        <button class="moveBtn" data-move="1" style="background: #ec7495;"><img src="public/svg/armsPL.svg" class="imbtn"></button>
+                        <button class="moveBtn" data-move="2" style="background: #8fa7df;"><img src="public/svg/armsSL.svg" class="imbtn"></button>
+                    </div>
+
+                    <!-- 888888888888888888888888888888888888888888888888888888888888888888-->
+
+                </div>
+                <div id="walletGroup" class="walletgroup hidden">
+                    <div id="walletInfo" class="home-walletinfo"></div>
+                    <div id="walletBalance"></div>
+                </div>
+                <div id="playsProgressWrapper" style="position: relative; width: 100%; margin-bottom: 20px;">
+                    <div id="playsProgressContainer" style="width: 100%; background: #eee; border-radius: 8px; overflow: hidden; height: 20px;">
+                        <div id="playsProgressBar" style="width: 0%; height: 100%; background: var(--color-theme-solgreen); box-shadow: inset rgb(0 122 24) 0px 0px 6px 1px;"></div>
+                    </div>
+                    <div id="levelMarkers" style="position: absolute; top: -25px; left: 0; width: 100%; height: 20px;">
+                    </div>
+                </div>
+
+                <!-- 888888888888888888888888888888888888888888888888888888888888888888-->
+
+                <div class="hd10sup">
+                    <div class="hd10info">
+                        <div class="hconteiner">
+                            <div id="historyList" class="info-text hidden">No history loaded.</div>
+                            <div id="hbtng" class="prevnextg hidden">
+                                <button id="prevBtn" class="secondary-btnsmall"> < </button>
+                                <button id="nextBtn" class="secondary-btnsmall"> > </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="SRC" class="s_r_conteiner hidden">
+                        <div id="score" class="home-score hidden"></div>
+                        <div id="lvlpp"> </div>
+                        <div id="myRankingDiv"></div>
+                    </div>
+                </div>
+
+                <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+                <div class="home-stats">
+                    <div class="home-chart1">
+                        <div class="chart-container hidden" id="chartsSection">
+                            <div id="choicesChart" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                    <div class="home-chart2">
+                        <div class="chart-container hidden" id="chartsSection2">
+                            <div id="winsChart" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="txLog" class="tx-log hidden"></div>
+
+                <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+            </section>
+            <section class="home-ranking">
+                <div class="rhbg">
+                    <h2 class="home-header17" style="
+                    font-size: 25px;
+                    letter-spacing: 10px;">Leaderboard</h2>
+                </div>
+                <div class="cardss">
+                    <figure class="icon-cards mt-3">
+                        <div class="icon-cards__content">
+                            <div class="icon-cards__item d-flex align-items-center justify-content-center">
+                                <div id="segundo" class="rnk1"></div>
+                            </div>
+                            <div class="icon-cards__item d-flex align-items-center justify-content-center">
+                                <div id="primeiro" class="rnk2"></div>
+                            </div>
+                            <div class="icon-cards__item d-flex align-items-center justify-content-center">
+                                <div id="terceiro" class="rnk3"></div>
+                            </div>
+                        </div>
+
+                    </figure>
+                </div>
+                <div id="firebaseSection" class="fbrm">
+                    <div id="rankingTableContainer">
+                        <div class="rhbg">
+                            <h2 class="home-header17" style="
+                            font-size: 25px;
+                            letter-spacing: 10px;">Ranking</h2>
+                        </div>
+                        <div id="rankingStatus" class="info-text small-text"></div>
+                        <table id="rankingTable" class="ranking-table hidden">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="col-pubkey">PublicKey</th>
+                                    <th>Nickname</th>
+                                    <th>Score</th>
+                                    <th>Last Update</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rankingBody"></tbody>
+                        </table>
+                    </div>
+                    <div style="margin-top: 20px;" class="register-firebase">
+                        <div class="rfc">
+                            <input class="inputfirebase" type="text" id="nicknameInput" placeholder="Enter your nickname" />
+                            <button id="registerFirebaseBtn" class="secondary-btn">Register</button>
+                            <button id="refreshRankingBtn" class="secondary-btnb">Refresh</button>
+                        </div>
+                    </div>
+                    <div id="firebaseStatus" class="info-text"></div>
+                </div>
+
+            </section>
+            <!-- =================================================================================================================== -->
+            <section class="home-collection">
+                <div class="home-content13">
+                    <span class="home-caption11">collection</span>
+                    <div class="home-heading11">
+                        <h2 class="home-header15">All time best collections</h2>
+                        <p class="home-header16">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                        </p>
+                    </div>
+                    <!-- =================================================================================================================== -->
+                    <div class="gamepage">
+                        <div class="containerMain">
+                            <div id="game" class="hidden">
+                                <div id="result" class="result-text"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =================================================================================================================== -->
+                </div>
+                <div class="home-main4">
+                    <div class="home-card13">
+                        <div class="home-image16">
+                            <img alt="image" src="public/Characters/character-1.svg" class="home-image17" />
+                        </div>
+                        <div class="home-content14">
+                            <span class="home-caption12">Character #1</span>
+                            <h3 class="home-title1">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card14">
+                        <div class="home-image18">
+                            <img alt="image" src="public/Characters/character-2.svg" class="home-image19" />
+                        </div>
+                        <div class="home-content15">
+                            <span class="home-caption13">Character #2</span>
+                            <h3 class="home-title2">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card15">
+                        <div class="home-image20">
+                            <img alt="image" src="public/Characters/character-3.svg" class="home-image21" />
+                        </div>
+                        <div class="home-content16">
+                            <span class="home-caption14">Character #3</span>
+                            <h3 class="home-title3">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card16">
+                        <div class="home-image22">
+                            <img alt="image" src="public/Characters/character-4.svg" class="home-image23" />
+                        </div>
+                        <div class="home-content17">
+                            <span class="home-caption15">
+                        <span>Character #4</span>
+                            <br />
+                            </span>
+                            <h3 class="home-title4">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card17">
+                        <div class="home-image24">
+                            <img alt="image" src="public/Characters/character-5.svg" class="home-image25" />
+                        </div>
+                        <div class="home-content18">
+                            <span class="home-caption16">Character #5</span>
+                            <h3 class="home-title5">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card18">
+                        <div class="home-image26">
+                            <img alt="image" src="public/Characters/character-6.svg" class="home-image27" />
+                        </div>
+                        <div class="home-content19">
+                            <span class="home-caption17">Character #6</span>
+                            <h3 class="home-title6">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card19">
+                        <div class="home-image28">
+                            <img alt="image" src="public/Characters/character-7.svg" class="home-image29" />
+                        </div>
+                        <div class="home-content20">
+                            <span class="home-caption18">Character #7</span>
+                            <h3 class="home-title7">0.05 ETH</h3>
+                        </div>
+                    </div>
+                    <div class="home-card20">
+                        <div class="home-image30">
+                            <img alt="image" src="public/Characters/character-8.svg" class="home-image31" />
+                        </div>
+                        <div class="home-content21">
+                            <span class="home-caption19">Character #8</span>
+                            <h3 class="home-title8">0.05 ETH</h3>
+                        </div>
+                    </div>
+                </div>
+                <button class="home-view3 button-link button">View all</button>
+            </section>
+            <!-- =================================================================================================================== -->
+            <footer class="home-footer">
+                <div class="home-main6">
+                    <div class="home-branding">
+                        <div class="home-heading20">
+                            <h2 class="home-logo3">Character</h2>
+                            <p class="home-caption27">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                            </p>
+                        </div>
+                        <div class="home-socials2">
+                            <a href="https://twitter.com" target="_blank" rel="noreferrer noopener" class="home-twitter2 social button">
+                                <img alt="image" src="public/Icons/twitter.svg" class="home-image42" />
+                            </a>
+                            <a href="https://discord.com" target="_blank" rel="noreferrer noopener" class="home-discord2 social button">
+                                <img alt="image" src="public/Icons/discord.svg" class="home-image43" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="home-links">
+                        <div class="home-list2">
+                            <h3 class="home-heading21">Site</h3>
+                            <div class="home-items1">
+                                <button class="home-link1 button-clean button">About</button>
+                                <button class="home-link2 button-clean button">
+                        Collection
+                      </button>
+                                <button class="home-link3 button-clean button">
+                        Roadmap
+                      </button>
+                                <button class="home-link4 button-clean button">
+                        Features
+                      </button>
+                            </div>
+                        </div>
+                        <div class="home-list3">
+                            <h3 class="home-heading22">Company</h3>
+                            <div class="home-items2">
+                                <button class="home-link5 button-clean button">Team</button>
+                                <button class="home-link6 button-clean button">Press</button>
+                                <button class="home-link7 button-clean button">Terms</button>
+                                <button class="home-link8 button-clean button">
+                        Limitations
+                      </button>
+                                <button class="home-link9 button-clean button">
+                        Licenses
+                      </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="home-socials3">
+                        <a href="https://twitter.com" target="_blank" rel="noreferrer noopener" class="home-twitter3 social button">
+                            <img alt="image" src="public/Icons/twitter.svg" class="home-image44" />
+                        </a>
+                        <a href="https://discord.com" target="_blank" rel="noreferrer noopener" class="home-discord3 social button">
+                            <img alt="image" src="public/Icons/discord.svg" class="home-image45" />
+                        </a>
+                    </div>
+                </div>
+                <span class="home-copyright">
+                © 2022 Character. All Rights Reserved.
+              </span>
+            </footer>
+            <div>
+                <div class="home-container5">
+                    <script src="accordionHelper.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+    <script defer="" src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+    <script src="game.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathHelper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomBounce.min.js"></script>
+    <!-- <script src="animation.js"></script> -->
+    <script>
+        function classToggle() {
+            var el = document.querySelector('.icon-cards__content');
+            el.classList.toggle('step-animation');
+        }
+        window.onload = () => {
+            classToggle();
+        };
+    </script>
+
+    <!-- 88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888-->
+
+</body>
+
+</html>
